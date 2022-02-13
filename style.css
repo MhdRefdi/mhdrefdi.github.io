@@ -85,6 +85,7 @@ nav .nav-btn:hover {
 nav ul li a:hover {
   color: #0d6efd;
 }
+
 /* Akhir Navbar */
 
 /* Home */
@@ -310,3 +311,36 @@ nav ul li a:hover {
 }
 
 /* Akhir Skills */
+
+.menu-btn {
+  position: relative;
+  z-index: 99999;
+  right: -90%;
+  cursor: pointer;
+}
+
+.menu-btn .line {
+  width: 30px;
+  height: 5px;
+  border-radius: 5px;
+  background: black;
+  margin-top: 5px;
+  background: white;
+}
+
+@media screen and (max-width: 800px) {
+  nav ul {
+    display: none;
+  }
+  nav a {
+    display: none;
+  }
+
+  nav .logo {
+    margin-left: 20px;
+  }
+
+  nav {
+    justify-content: flex-start;
+  }
+}
