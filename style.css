@@ -41,6 +41,7 @@ nav {
   right: 0;
   z-index: 9999;
   margin-bottom: 80px;
+  transition: 0.5s ease;
 }
 
 nav .logo {
@@ -312,21 +313,115 @@ nav ul li a:hover {
 
 /* Akhir Skills */
 
+#check {
+  display: none;
+}
+
 .menu-btn {
-  position: relative;
+  position: fixed;
   z-index: 99999;
-  right: -90%;
+  top: 20px;
+  right: 5%;
   cursor: pointer;
+  transition: 0.5s ease;
+  display: none;
 }
 
 .menu-btn .line {
   width: 30px;
   height: 5px;
   border-radius: 5px;
-  background: black;
   margin-top: 5px;
   background: white;
 }
+
+.cancel-btn {
+  position: fixed;
+  z-index: 999999999;
+  top: 20px;
+  left: -9999px;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.cancel-btn .line {
+  width: 30px;
+  height: 5px;
+  border-radius: 5px;
+  margin-top: 5px;
+  background: white;
+}
+
+.cancel-btn .line:nth-child(2) {
+  opacity: 0;
+}
+.cancel-btn .line:nth-child(1) {
+  transform: translateY(10px) rotate(220deg);
+}
+.cancel-btn .line:nth-child(3) {
+  transform: translateY(-10px) rotate(-220deg);
+}
+
+#check:checked ~ label .cancel-btn {
+  top: 22px;
+  left: 47%;
+}
+#check:checked ~ label .menu-btn {
+  opacity: 0;
+}
+#check:checked ~ .sidebar {
+  left: 0;
+}
+#check:checked ~ nav {
+  opacity: 0;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  left: -9999px;
+  width: 55%;
+  height: 100vh;
+  z-index: 99999999;
+  background: #212121;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  transition: 0.5s ease;
+}
+
+.sidebar .logo {
+  line-height: 80px;
+  background: #212529;
+  color: white;
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.sidebar .logo span {
+  color: #0d6efd;
+}
+
+.sidebar ul li a {
+  color: white;
+  transition: 0.5s ease;
+}
+
+.sidebar ul li {
+  padding: 20px 0;
+  border-bottom: 1px solid;
+  cursor: pointer;
+}
+
+.sidebar ul li:hover > a {
+  color: #0d6efd;
+}
+
+.sidebar ul li:hover {
+  background: #171717;
+}
+
+/* Akhir Sidebar */
 
 @media screen and (max-width: 800px) {
   nav ul {
@@ -337,10 +432,49 @@ nav ul li a:hover {
   }
 
   nav .logo {
-    margin-left: 20px;
+    margin-left: 5%;
   }
 
   nav {
     justify-content: flex-start;
+  }
+
+  #about .wrap-content {
+    flex-direction: column;
+  }
+
+  #about img {
+    display: none;
+  }
+
+  #about .content-text {
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+  }
+
+  #about table {
+    margin: auto;
+    text-align: left;
+  }
+
+  #skills .wrap {
+    flex-direction: column;
+  }
+
+  #skills .wrap-info {
+    width: 100%;
+  }
+
+  #skills {
+    height: 100%;
+  }
+
+  #skills .wrap-skills {
+    margin-bottom: 80px;
+  }
+
+  .menu-btn {
+    display: block;
   }
 }
